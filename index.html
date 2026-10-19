@@ -871,20 +871,22 @@ html.sheet-lock, html.sheet-lock body { overflow: hidden; }
 }
 
 .certs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
-.certs-grid .courses { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.certs-grid .courses { grid-template-columns: minmax(0, 1fr); align-content: start; }
 .cert { all: unset; box-sizing: border-box; cursor: zoom-in; display: grid; gap: 14px; padding: 14px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); transition: border-color .3s, transform .4s var(--ease); }
 .cert:hover, .cert:focus-visible { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); transform: translateY(-3px); }
 .cert:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .cert .paper { position: relative; display: block; border-radius: 10px; overflow: hidden; box-shadow: 0 22px 34px -22px rgba(0,0,0,.55), 0 0 0 1px var(--line); transform: rotate(-1.4deg); transition: transform .6s var(--ease); }
 .cert:nth-child(2) .paper { transform: rotate(1.4deg); }
 .cert:nth-child(3) .paper { transform: rotate(-.8deg); }
+.cert:nth-child(4) .paper { transform: rotate(1deg); }
+.cert:nth-child(5) .paper { transform: rotate(-1.2deg); }
 .cert:hover .paper, .cert:focus-visible .paper { transform: rotate(0) scale(1.015); }
 .cert .paper img { display: block; width: 100%; height: auto; }
 .cert .paper::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.45) 48%, rgba(255,255,255,.1) 56%, transparent 66%); transform: translateX(-130%); transition: transform .9s var(--ease); pointer-events: none; }
 .cert:hover .paper::after { transform: translateX(130%); }
-.cert .cap { display: grid; gap: 3px; padding-inline: 4px; }
-.cert .cap b { font: 700 1.02rem/1.3 var(--display); color: var(--ink); }
-.cert .cap small { color: var(--muted); font-size: .86rem; }
+.cert .ccap { display: grid; gap: 3px; padding-inline: 4px; }
+.cert .ccap b { font: 700 1.02rem/1.3 var(--display); color: var(--ink); }
+.cert .ccap small { color: var(--muted); font-size: .86rem; }
 .courses { display: grid; gap: 14px; }
 .course { border: 1px solid var(--line); border-radius: 18px; padding: 18px; display: grid; gap: 6px; background: var(--surface); }
 .course b { font: 600 1.02rem/1.35 var(--display); }
@@ -896,7 +898,7 @@ html.sheet-lock, html.sheet-lock body { overflow: hidden; }
 .cv-ov button { position: absolute; top: calc(16px + env(safe-area-inset-top, 0px)); right: 16px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: rgba(255,255,255,.14); color: #fff; font-size: 1.2rem; cursor: pointer; }
 @media (max-width: 960px) { .certs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .certs-grid, .certs-grid .courses { grid-template-columns: minmax(0, 1fr); } }
-@media (prefers-reduced-motion: reduce) { .cert .paper, .cert:nth-child(2) .paper, .cert:nth-child(3) .paper { transform: none; } .cv-ov, .cv-ov img { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .cert .paper, .cert:nth-child(n) .paper { transform: none; } .cv-ov, .cv-ov img { transition: none; } }
 
 /* contact */
 .contact { background: var(--band); color: var(--band-ink); border-radius: 28px; padding: clamp(28px, 6vw, 64px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 40px; align-items: center; }
@@ -1250,9 +1252,11 @@ footer { color: var(--muted); font-size: 0.85rem; display: flex; justify-content
       <h2 data-t="cert.title"></h2>
     </div>
     <div class="certs-grid">
-      <button class="cert rise" type="button" data-full="img/cert-depi-tester.webp"><span class="paper"><img src="img/cert-depi-tester-thumb.webp" alt="DEPI Software Tester certificate" loading="lazy" width="640" height="443"></span><span class="cap"><b data-t="cert1.b"></b><small data-t="cert1.s"></small></span></button>
-      <button class="cert rise" type="button" data-full="img/cert-depi-english.webp"><span class="paper"><img src="img/cert-depi-english-thumb.webp" alt="DEPI Business English certificate" loading="lazy" width="640" height="494"></span><span class="cap"><b data-t="certE.b"></b><small data-t="certE.s"></small></span></button>
-      <button class="cert rise" type="button" data-full="img/cert-iti.webp"><span class="paper"><img src="img/cert-iti-thumb.webp" alt="ITI Software Testing Concepts and Techniques certificate" loading="lazy" width="640" height="452"></span><span class="cap"><b data-t="certI.b"></b><small data-t="certI.s"></small></span></button>
+      <button class="cert rise" type="button" data-full="img/cert-depi-tester.webp"><span class="paper"><img src="img/cert-depi-tester-thumb.webp" alt="DEPI Software Tester certificate" loading="lazy" width="640" height="443"></span><span class="ccap"><b data-t="cert1.b"></b><small data-t="cert1.s"></small></span></button>
+      <button class="cert rise" type="button" data-full="img/cert-depi-english.webp"><span class="paper"><img src="img/cert-depi-english-thumb.webp" alt="DEPI Business English certificate" loading="lazy" width="640" height="494"></span><span class="ccap"><b data-t="certE.b"></b><small data-t="certE.s"></small></span></button>
+      <button class="cert rise" type="button" data-full="img/cert-iti.webp"><span class="paper"><img src="img/cert-iti-thumb.webp" alt="ITI Software Testing Concepts and Techniques certificate" loading="lazy" width="640" height="452"></span><span class="ccap"><b data-t="certI.b"></b><small data-t="certI.s"></small></span></button>
+      <button class="cert rise" type="button" data-full="img/cert-udemy-selenium.webp"><span class="paper"><img src="img/cert-udemy-selenium-thumb.webp" alt="Udemy Mastering Selenium with Java certificate" loading="lazy" width="640" height="471"></span><span class="ccap"><b data-t="certS.b"></b><small data-t="certS.s"></small></span></button>
+      <button class="cert rise" type="button" data-full="img/cert-udemy-api.webp"><span class="paper"><img src="img/cert-udemy-api-thumb.webp" alt="Udemy API Testing certificate" loading="lazy" width="640" height="471"></span><span class="ccap"><b data-t="certA.b"></b><small data-t="certA.s"></small></span></button>
       <div class="courses">
         <div class="course rise"><div class="label" data-t="cert2.k"></div><b data-t="cert2.b"></b><span data-t="cert2.s"></span></div>
         <div class="course rise"><div class="label" data-t="cert3.k"></div><b data-t="cert3.b"></b><span data-t="cert3.s"></span></div>
@@ -1387,7 +1391,7 @@ var T = {
     "skills.label": "Test lab", "skills.title": "What I test, and how", "skills.sub": "The kinds of testing I run, the tools I use, and how a bug travels from my report to the release.",
     "cert.label": "Certifications & training",
     "cert.title": "Certified and trained", "cert1.b": "DEPI · Software Tester", "cert1.s": "Digital Egypt Pioneers Program · Apr – Oct 2024",
-    "certE.b": "DEPI · Business English", "certE.s": "Berlitz Egypt track · Apr – Oct 2024", "certI.b": "ITI · Software Testing Concepts & Techniques", "certI.s": "Mahara-Tech · 30 hours · Oct 2026", certView: "View certificate",
+    "certE.b": "DEPI · Business English", "certE.s": "Berlitz Egypt track · Apr – Oct 2024", "certI.b": "ITI · Software Testing Concepts & Techniques", "certI.s": "Mahara-Tech · 30 hours · Oct 2026", "certS.b": "Udemy · Mastering Selenium with Java", "certS.s": "Automation from zero to pro · 51 hours · Oct 2026", "certA.b": "Udemy · API Testing", "certA.s": "From zero to advanced · 4.5 hours · Oct 2026", certView: "View certificate",
     "cert2.k": "Courses", "cert2.b": "Nezam Academy", "cert2.s": "Manual testing, API testing and automation",
     "cert3.k": "Courses", "cert3.b": "QA Cart", "cert3.s": "Manual testing, API testing and automation",
     "f1.k": "Education", "f1.b": "Faculty of Engineering", "f1.s": "PHI · 2022",
@@ -1427,7 +1431,7 @@ var T = {
     "skills.label": "معمل الاختبار", "skills.title": "ماذا أختبر، وكيف", "skills.sub": "أنواع الاختبار التي أنفّذها، والأدوات التي أستخدمها، ورحلة الخطأ من تقريري حتى الإصدار.",
     "cert.label": "الشهادات والتدريب",
     "cert.title": "شهادات وتدريب", "cert1.b": "DEPI · مختبر برمجيات", "cert1.s": "مبادرة رواد مصر الرقمية · أبريل – أكتوبر 2024",
-    "certE.b": "DEPI · اللغة الإنجليزية للأعمال", "certE.s": "مسار Berlitz Egypt · أبريل – أكتوبر 2024", "certI.b": "ITI · مفاهيم وتقنيات اختبار البرمجيات", "certI.s": "منصة مهارة تك · 30 ساعة · أكتوبر 2026", certView: "عرض الشهادة",
+    "certE.b": "DEPI · اللغة الإنجليزية للأعمال", "certE.s": "مسار Berlitz Egypt · أبريل – أكتوبر 2024", "certI.b": "ITI · مفاهيم وتقنيات اختبار البرمجيات", "certI.s": "منصة مهارة تك · 30 ساعة · أكتوبر 2026", "certS.b": "Udemy · أتمتة الاختبار بـ Selenium وJava", "certS.s": "أوتوميشن من الصفر للاحتراف · 51 ساعة · أكتوبر 2026", "certA.b": "Udemy · اختبار الـ APIs", "certA.s": "من الصفر حتى المستوى المتقدم · 4.5 ساعة · أكتوبر 2026", certView: "عرض الشهادة",
     "cert2.k": "دورات", "cert2.b": "Nezam Academy", "cert2.s": "الاختبار اليدوي واختبار APIs والأتمتة",
     "cert3.k": "دورات", "cert3.b": "QA Cart", "cert3.s": "الاختبار اليدوي واختبار APIs والأتمتة",
     "f1.k": "التعليم", "f1.b": "كلية الهندسة", "f1.s": "PHI · 2022",
