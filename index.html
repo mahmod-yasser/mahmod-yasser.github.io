@@ -871,7 +871,7 @@ html.sheet-lock, html.sheet-lock body { overflow: hidden; }
 }
 
 .certs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
-.certs-grid .courses { grid-template-columns: minmax(0, 1fr); align-content: start; }
+.certs-grid .courses { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; }
 .cert { all: unset; box-sizing: border-box; cursor: zoom-in; display: grid; gap: 14px; padding: 14px; border-radius: 22px; border: 1px solid var(--line); background: var(--surface); transition: border-color .3s, transform .4s var(--ease); }
 .cert:hover, .cert:focus-visible { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); transform: translateY(-3px); }
 .cert:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -1255,6 +1255,7 @@ footer { color: var(--muted); font-size: 0.85rem; display: flex; justify-content
       <button class="cert rise" type="button" data-full="img/cert-depi-tester.webp"><span class="paper"><img src="img/cert-depi-tester-thumb.webp" alt="DEPI Software Tester certificate" loading="lazy" width="640" height="443"></span><span class="ccap"><b data-t="cert1.b"></b><small data-t="cert1.s"></small></span></button>
       <button class="cert rise" type="button" data-full="img/cert-depi-english.webp"><span class="paper"><img src="img/cert-depi-english-thumb.webp" alt="DEPI Business English certificate" loading="lazy" width="640" height="494"></span><span class="ccap"><b data-t="certE.b"></b><small data-t="certE.s"></small></span></button>
       <button class="cert rise" type="button" data-full="img/cert-iti.webp"><span class="paper"><img src="img/cert-iti-thumb.webp" alt="ITI Software Testing Concepts and Techniques certificate" loading="lazy" width="640" height="452"></span><span class="ccap"><b data-t="certI.b"></b><small data-t="certI.s"></small></span></button>
+      <button class="cert rise" type="button" data-full="img/cert-udemy-bootcamp.webp"><span class="paper"><img src="img/cert-udemy-bootcamp-thumb.webp" alt="Udemy The Complete 2026 Software Testing Bootcamp certificate" loading="lazy" width="640" height="471"></span><span class="ccap"><b data-t="certB.b"></b><small data-t="certB.s"></small></span></button>
       <button class="cert rise" type="button" data-full="img/cert-udemy-selenium.webp"><span class="paper"><img src="img/cert-udemy-selenium-thumb.webp" alt="Udemy Mastering Selenium with Java certificate" loading="lazy" width="640" height="471"></span><span class="ccap"><b data-t="certS.b"></b><small data-t="certS.s"></small></span></button>
       <button class="cert rise" type="button" data-full="img/cert-udemy-api.webp"><span class="paper"><img src="img/cert-udemy-api-thumb.webp" alt="Udemy API Testing certificate" loading="lazy" width="640" height="471"></span><span class="ccap"><b data-t="certA.b"></b><small data-t="certA.s"></small></span></button>
       <div class="courses">
@@ -1391,7 +1392,7 @@ var T = {
     "skills.label": "Test lab", "skills.title": "What I test, and how", "skills.sub": "The kinds of testing I run, the tools I use, and how a bug travels from my report to the release.",
     "cert.label": "Certifications & training",
     "cert.title": "Certified and trained", "cert1.b": "DEPI · Software Tester", "cert1.s": "Digital Egypt Pioneers Program · Apr – Oct 2024",
-    "certE.b": "DEPI · Business English", "certE.s": "Berlitz Egypt track · Apr – Oct 2024", "certI.b": "ITI · Software Testing Concepts & Techniques", "certI.s": "Mahara-Tech · 30 hours · Oct 2026", "certS.b": "Udemy · Mastering Selenium with Java", "certS.s": "Automation from zero to pro · 51 hours · Oct 2026", "certA.b": "Udemy · API Testing", "certA.s": "From zero to advanced · 4.5 hours · Oct 2026", certView: "View certificate",
+    "certE.b": "DEPI · Business English", "certE.s": "Berlitz Egypt track · Apr – Oct 2024", "certI.b": "ITI · Software Testing Concepts & Techniques", "certI.s": "Mahara-Tech · 30 hours · Oct 2026", "certB.b": "Udemy · The Complete 2026 Software Testing Bootcamp", "certB.s": "Nezam Academy · 45 hours · Oct 2026", "certS.b": "Udemy · Mastering Selenium with Java", "certS.s": "Automation from zero to pro · 51 hours · Oct 2026", "certA.b": "Udemy · API Testing", "certA.s": "From zero to advanced · 4.5 hours · Oct 2026", certView: "View certificate",
     "cert2.k": "Courses", "cert2.b": "Nezam Academy", "cert2.s": "Manual testing, API testing and automation",
     "cert3.k": "Courses", "cert3.b": "QA Cart", "cert3.s": "Manual testing, API testing and automation",
     "f1.k": "Education", "f1.b": "Faculty of Engineering", "f1.s": "PHI · 2022",
@@ -1431,7 +1432,7 @@ var T = {
     "skills.label": "معمل الاختبار", "skills.title": "ماذا أختبر، وكيف", "skills.sub": "أنواع الاختبار التي أنفّذها، والأدوات التي أستخدمها، ورحلة الخطأ من تقريري حتى الإصدار.",
     "cert.label": "الشهادات والتدريب",
     "cert.title": "شهادات وتدريب", "cert1.b": "DEPI · مختبر برمجيات", "cert1.s": "مبادرة رواد مصر الرقمية · أبريل – أكتوبر 2024",
-    "certE.b": "DEPI · اللغة الإنجليزية للأعمال", "certE.s": "مسار Berlitz Egypt · أبريل – أكتوبر 2024", "certI.b": "ITI · مفاهيم وتقنيات اختبار البرمجيات", "certI.s": "منصة مهارة تك · 30 ساعة · أكتوبر 2026", "certS.b": "Udemy · أتمتة الاختبار بـ Selenium وJava", "certS.s": "أوتوميشن من الصفر للاحتراف · 51 ساعة · أكتوبر 2026", "certA.b": "Udemy · اختبار الـ APIs", "certA.s": "من الصفر حتى المستوى المتقدم · 4.5 ساعة · أكتوبر 2026", certView: "عرض الشهادة",
+    "certE.b": "DEPI · اللغة الإنجليزية للأعمال", "certE.s": "مسار Berlitz Egypt · أبريل – أكتوبر 2024", "certI.b": "ITI · مفاهيم وتقنيات اختبار البرمجيات", "certI.s": "منصة مهارة تك · 30 ساعة · أكتوبر 2026", "certB.b": "Udemy · المعسكر الشامل لاختبار البرمجيات 2026", "certB.s": "Nezam Academy · 45 ساعة · أكتوبر 2026", "certS.b": "Udemy · أتمتة الاختبار بـ Selenium وJava", "certS.s": "أوتوميشن من الصفر للاحتراف · 51 ساعة · أكتوبر 2026", "certA.b": "Udemy · اختبار الـ APIs", "certA.s": "من الصفر حتى المستوى المتقدم · 4.5 ساعة · أكتوبر 2026", certView: "عرض الشهادة",
     "cert2.k": "دورات", "cert2.b": "Nezam Academy", "cert2.s": "الاختبار اليدوي واختبار APIs والأتمتة",
     "cert3.k": "دورات", "cert3.b": "QA Cart", "cert3.s": "الاختبار اليدوي واختبار APIs والأتمتة",
     "f1.k": "التعليم", "f1.b": "كلية الهندسة", "f1.s": "PHI · 2022",
